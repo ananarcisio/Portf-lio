@@ -6,19 +6,21 @@ if not exist .git (
     git init
 )
 
-:: Configura o seu repositorio correto da Ana Elisa
+:: Configura o seu nome e email para sumir com o aviso amarelo
+git config user.name "Ana Elisa Fernandes Narcisio"
+git config user.email "anaelisafernandesn06@gmail.com"
+
+:: Configura o seu repositorio correto
 git remote add origin https://github.com/ananarcisio/Portf-lio.git 2>nul
 git branch -M main
 
+:: Adiciona os arquivos e cria o ponto de atualizacao
 git add .
 git commit -m "Atualizacao do site" 2>nul
 
-:: Tenta atualizar trazendo os arquivos do GitHub e juntando os historicos
-git pull origin main --allow-unrelated-histories --no-edit
-
-:: Envia os arquivos atualizados de volta para o GitHub
-git push -u origin main
+:: Envia os arquivos forcando a sobreposicao para eliminar o conflito
+git push -u origin main --force
 
 echo.
-echo Processo concluido! Verifique as mensagens acima.
+echo Site atualizado com sucesso!
 pause
