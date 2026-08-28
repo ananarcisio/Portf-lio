@@ -3,20 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana Elisa Fernandes Narcísio - Portfólio</title>
+    <title>Ana Elisa Fernandes Narcísio — Portfólio</title>
+    <meta name="description" content="Portfólio de Ana Elisa Fernandes Narcísio, técnica em informática em busca de estágio em Desenvolvimento de Software e Infraestrutura.">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">Ana Elisa</div>
+            <a href="#home" class="nav-logo">Ana<span>Elisa</span></a>
             <ul class="nav-menu">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#about">Sobre</a></li>
-                <li><a href="#experience">Experiência</a></li>
+                <li><a href="#experience">Trajetória</a></li>
+                <li><a href="#projects">Projetos</a></li>
                 <li><a href="#skills">Competências</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
@@ -30,42 +32,54 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Ana Elisa Fernandes Narcísio</h1>
-            <p class="hero-subtitle">Desenvolvedora & Técnica Informática</p>
-            <p class="hero-description">Iniciando minha trajetória profissional com foco em desenvolvimento de software e infraestrutura, buscando crescer através de projetos inovadores e impactantes.</p>
+            <p class="hero-eyebrow">Técnica em Informática · Belo Horizonte, MG</p>
+            <h1>Ana Elisa Fernandes<br>Narcísio</h1>
+            <p class="hero-subtitle">Desenvolvimento &amp; Infraestrutura de TI</p>
+            <p class="hero-description">Aplico lógica de programação, redes e banco de dados para resolver problemas reais — em busca de um estágio onde eu possa aprender rápido e entregar resultado desde o primeiro dia.</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Entre em Contato</a>
-                <a href="#about" class="btn-secondary">Saiba Mais</a>
+                <a href="#contact" class="btn-primary">Vamos conversar</a>
+                <a href="#experience" class="btn-secondary">Ver trajetória</a>
             </div>
         </div>
     </section>
 
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">Sobre Mim</h2>
+            <span class="section-eyebrow">Sobre mim</span>
+            <h2 class="section-title">Da sala de aula ao suporte técnico</h2>
             <div class="about-content">
                 <div class="about-profile">
                     <img src="images/foto_ana.png" alt="Ana Elisa Fernandes Narcísio" class="profile-image">
+                    <div class="profile-badge">
+                        <i class="fas fa-bolt"></i>
+                        <span>94,67% de aproveitamento no Técnico</span>
+                    </div>
                 </div>
                 <div class="about-text">
-                    <p>Sou uma profissional em início de carreira, formada em Técnico de Informática pelo Colégio Cotemig. Minha paixão pela tecnologia me motiva a buscar constantemente novos conhecimentos e desafios.</p>
-                    <p>Atualmente trabalho como Jovem Aprendiz na Construtora Barbosa Mello e como Monitora Técnica no Colégio Cotemig, onde desenvolvo habilidades práticas e compartilho conhecimento com outros estudantes.</p>
+                    <p>Sou formada em Técnico em Informática pelo Colégio Cotemig e estou cursando Análise e Desenvolvimento de Sistemas na Faculdade Cotemig, com previsão de conclusão em 2027. Minha curiosidade por tecnologia me levou de aluna destaque a professora — hoje já ensino o que um dia aprendi.</p>
+                    <p>Já passei pelo suporte técnico ao usuário, pela manutenção de hardware, pela sala de aula como monitora e, mais recentemente, como professora de Manutenção e Configuração de Computadores. Esse caminho me deu uma visão prática de infraestrutura e uma didática que uso todos os dias.</p>
                 </div>
                 <div class="achievements">
                     <div class="achievement-item">
                         <i class="fas fa-trophy"></i>
-                        <h3>The Best of The Class</h3>
-                        <p>94,67% de aproveitamento (2023)</p>
+                        <div>
+                            <h3>The Best of The Class</h3>
+                            <p>94,67% de aproveitamento global — Ensino Médio Técnico (2023)</p>
+                        </div>
                     </div>
                     <div class="achievement-item">
                         <i class="fas fa-medal"></i>
-                        <h3>Olimpíada Nacional de Ciências</h3>
-                        <p>2ª fase - Menção Honrosa (2019)</p>
+                        <div>
+                            <h3>Olimpíada Nacional de Ciências</h3>
+                            <p>Classificada para a 2ª fase — fase nacional (2019)</p>
+                        </div>
                     </div>
                     <div class="achievement-item">
                         <i class="fas fa-star"></i>
-                        <h3>Aluna Destaque</h3>
-                        <p>Colégio Tiradentes (2018)</p>
+                        <div>
+                            <h3>Aluna Destaque</h3>
+                            <p>Colégio Tiradentes da PMMG (2018/2019)</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -74,49 +88,103 @@
 
     <section id="experience" class="experience">
         <div class="container">
-            <h2 class="section-title">Experiência & Formação</h2>
-            <div class="timeline">
+            <span class="section-eyebrow">Trajetória</span>
+            <h2 class="section-title">Experiência &amp; formação</h2>
+            <div class="flight-path">
+                <svg class="flight-line" viewBox="0 0 20 800" preserveAspectRatio="none" aria-hidden="true">
+                    <path d="M10,0 C 30,120 -10,220 10,340 C 30,460 -10,560 10,680 C 20,730 10,770 10,800" />
+                </svg>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">2026</div>
+                    <span class="timeline-marker"><i class="fas fa-plane"></i></span>
+                    <div class="timeline-date">02/2026 – 06/2026</div>
                     <div class="timeline-content">
-                        <h3>Professora de Manutenção e Configuração de Computadores (MCC)</h3>
+                        <h3>Professora de Manutenção e Configuração de Computadores</h3>
                         <p class="company">Colégio Cotemig</p>
-                        <p>Texto</p>
+                        <p>Ministrei aulas teóricas e práticas de arquitetura de computadores, hardware e sistemas operacionais, desenvolvendo uma didática clara para conceitos complexos de infraestrutura de TI e liderando a organização de laboratórios de testes e diagnósticos.</p>
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">2025 - 2026</div>
+                    <span class="timeline-marker"><i class="fas fa-plane"></i></span>
+                    <div class="timeline-date">05/2025 – 02/2026</div>
                     <div class="timeline-content">
                         <h3>Monitora Técnica</h3>
                         <p class="company">Colégio Cotemig</p>
-                        <p>Auxílio a estudantes em disciplinas técnicas, compartilhamento de conhecimento e suporte acadêmico.</p>
+                        <p>Apoio direto a alunos em laboratórios de informática, auxiliando na resolução de dúvidas em programação, infraestrutura e configuração de ambientes de desenvolvimento, além de manutenção básica de equipamentos acadêmicos.</p>
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">2024 - 2025</div>
-                    <div class="timeline-date">2024 - Atual</div>
+                    <span class="timeline-marker"><i class="fas fa-plane"></i></span>
+                    <div class="timeline-date">02/2024 – 12/2025</div>
                     <div class="timeline-content">
-                        <h3>Jovem Aprendiz</h3>
+                        <h3>Jovem Aprendiz de Suporte TI</h3>
                         <p class="company">Construtora Barbosa Mello</p>
-                        <p>Desenvolvimento de habilidades práticas em ambiente corporativo, com foco em tecnologia e suporte ao colaborador.</p>
+                        <p>Atuação em suporte técnico ao usuário (Service Desk) e manutenção de hardware, com apoio no monitoramento de sistemas de segurança (CFTV) e organização de inventários tecnológicos.</p>
                     </div>
                 </div>
-                
+
                 <div class="timeline-item">
+                    <span class="timeline-marker"><i class="fas fa-plane"></i></span>
                     <div class="timeline-date">2024</div>
                     <div class="timeline-content">
-                        <h3>Curso Gestão Industrial</h3>
+                        <h3>Curso de Gestão Industrial</h3>
                         <p class="company">SENAI Paulo de Tarso</p>
                         <p>Especialização em processos industriais e gestão de operações.</p>
                     </div>
                 </div>
+
                 <div class="timeline-item">
-                    <div class="timeline-date">2022 - 2024</div>
+                    <span class="timeline-marker"><i class="fas fa-plane"></i></span>
+                    <div class="timeline-date">2022 – 2024</div>
                     <div class="timeline-content">
-                        <h3>Ensino Médio e Técnico de Informática</h3>
+                        <h3>Ensino Médio e Técnico em Informática</h3>
                         <p class="company">Colégio Cotemig</p>
-                        <p>Formação técnica completa em informática com foco em desenvolvimento e tecnologias emergentes.</p>
+                        <p>Formação técnica completa em informática, com foco em desenvolvimento web e tecnologias emergentes.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <span class="section-eyebrow">Projetos</span>
+            <h2 class="section-title">O que venho construindo</h2>
+            <p class="section-lead">Em breve, alguns dos meus repositórios em destaque no <a href="https://github.com/ananarcisio" target="_blank" rel="noopener">GitHub</a> — por enquanto, aqui está o espaço reservado para eles.</p>
+            <div class="projects-grid">
+                <div class="project-card project-card--fill">
+                    <div class="project-card-icon"><i class="fas fa-code"></i></div>
+                    <h3>Nome do projeto</h3>
+                    <p>Uma frase curta e direta sobre o problema que o projeto resolve.</p>
+                    <div class="project-tags">
+                        <span class="skill-tag">Tecnologia</span>
+                        <span class="skill-tag">Tecnologia</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+                <div class="project-card project-card--fill">
+                    <div class="project-card-icon"><i class="fas fa-server"></i></div>
+                    <h3>Nome do projeto</h3>
+                    <p>Uma frase curta e direta sobre o problema que o projeto resolve.</p>
+                    <div class="project-tags">
+                        <span class="skill-tag">Tecnologia</span>
+                        <span class="skill-tag">Tecnologia</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                    </div>
+                </div>
+                <div class="project-card project-card--cta">
+                    <div class="project-card-icon"><i class="fab fa-github"></i></div>
+                    <h3>Ver todos os repositórios</h3>
+                    <p>Confira o restante do meu trabalho direto no GitHub.</p>
+                    <a href="https://github.com/ananarcisio" target="_blank" rel="noopener" class="btn-secondary btn-small">github.com/ananarcisio</a>
                 </div>
             </div>
         </div>
@@ -124,10 +192,11 @@
 
     <section id="skills" class="skills">
         <div class="container">
-            <h2 class="section-title">Competências & Certificações</h2>
+            <span class="section-eyebrow">Competências</span>
+            <h2 class="section-title">Ferramentas &amp; certificações</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Desenvolvimento</h3>
+                    <h3><i class="fas fa-code"></i> Desenvolvimento</h3>
                     <div class="skill-items">
                         <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
@@ -138,26 +207,27 @@
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Infraestrutura</h3>
+                    <h3><i class="fas fa-network-wired"></i> Infraestrutura</h3>
                     <div class="skill-items">
                         <span class="skill-tag">Manutenção de Hardware</span>
+                        <span class="skill-tag">Redes</span>
                         <span class="skill-tag">Monitoramento CFTV</span>
+                        <span class="skill-tag">Noções de Banco de Dados</span>
                         <span class="skill-tag">Google Workspace</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Soft Skills</h3>
+                    <h3><i class="fas fa-comments"></i> Soft Skills</h3>
                     <div class="skill-items">
                         <span class="skill-tag">Comunicação assertiva e didática</span>
-                        <span class="skill-tag">Comunicação</span>
-
                         <span class="skill-tag">Trabalho em Equipe</span>
                         <span class="skill-tag">Resolução de Problemas</span>
-                        <span class="skill-tag">Análise de Dados</span>
+                        <span class="skill-tag">Proatividade</span>
+                        <span class="skill-tag">Organização</span>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Idiomas</h3>
+                    <h3><i class="fas fa-globe"></i> Idiomas</h3>
                     <div class="skill-items">
                         <span class="skill-tag">Português (Nativo)</span>
                         <span class="skill-tag">Inglês (B2)</span>
@@ -165,22 +235,22 @@
                 </div>
             </div>
             <div class="certifications">
-                <h3>Certificações</h3>
+                <h3>Certificações Google</h3>
                 <div class="cert-items">
                     <div class="cert-item">
                         <i class="fab fa-google"></i>
                         <div>
                             <h4>Google Certified Educator Level 1</h4>
-                            <p>Certificação oficial Google para educadores</p>
-                            <a href="https://www.credly.com/badges/614e4f21-d93a-4894-9d57-556b99d0dca7/public_url">Visualize aqui!</a>
+                            <p>Certificação oficial Google para educadores.</p>
+                            <a href="https://www.credly.com/badges/614e4f21-d93a-4894-9d57-556b99d0dca7/public_url">Visualize aqui →</a>
                         </div>
                     </div>
                     <div class="cert-item">
                         <i class="fab fa-google"></i>
                         <div>
-                            <h4>Google Workspace Tools - Skill Badge</h4>
-                           <p>Competência em ferramentas Google Workspace</p>
-                            <a href="https://www.credly.com/badges/614e4f21-d93a-4894-9d57-556b99d0dca7/public_url">Visualize aqui!</a>
+                            <h4>Google Workspace Tools</h4>
+                            <p>Skill Badge de competência em ferramentas Google Workspace.</p>
+                            <a href="https://www.credly.com/badges/614e4f21-d93a-4894-9d57-556b99d0dca7/public_url">Visualize aqui →</a>
                         </div>
                     </div>
                     <div class="cert-item">
@@ -188,9 +258,7 @@
                         <div>
                             <h4>Implement Cloud Collaboration and Productivity Workflows</h4>
                             <p>Produtividade e colaboração em nuvem com Google Workspace.</p>
-                            <a href="https://www.credly.com/badges/614e4f21-d93a-4894-9d57-556b99d0dca7/public_url">Visualize aqui!</a>
-                            <p>Competência em ferramentas Google Workspace</p>
-
+                            <a href="https://www.credly.com/badges/614e4f21-d93a-4894-9d57-556b99d0dca7/public_url">Visualize aqui →</a>
                         </div>
                     </div>
                 </div>
@@ -200,27 +268,22 @@
 
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Vamos Conversar?</h2>
-            <div class="contact-content">
-                <p>Estou sempre aberta a novas oportunidades e desafios. Entre em contato comigo!</p>
-                <div class="contact-info">
-                    <a href="mailto:anaelisafernandesn06@gmail.com" class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>anaelisafernandesn06@gmail.com</span>
-                    </a>
-                    <a href="https://www.linkedin.com/in/ana-elisa-fernandes-narcisio" target="_blank" class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                </div>
-                <div class="future-projects">
-                    <h3>Projetos Futuros</h3>
-                    <p>Em breve, você encontrará aqui meus projetos no GitHub, estudos de caso e experiências hands-on em desenvolvimento.</p>
-                    <div class="coming-soon">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub - Em breve</span>
-                    </div>
-                </div>
+            <span class="section-eyebrow">Contato</span>
+            <h2 class="section-title">Vamos conversar?</h2>
+            <p class="contact-lead">Estou aberta a novas oportunidades de estágio em Desenvolvimento ou Infraestrutura. Me manda uma mensagem!</p>
+            <div class="contact-info">
+                <a href="mailto:anaelisafernandesn06@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>anaelisafernandesn06@gmail.com</span>
+                </a>
+                <a href="https://www.linkedin.com/in/ana-elisa-fernandes-narcisio" target="_blank" rel="noopener" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/ananarcisio" target="_blank" rel="noopener" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
             </div>
         </div>
     </section>
@@ -229,7 +292,7 @@
     <div id="contactModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h3>Enviar Mensagem</h3>
+            <h3>Enviar mensagem</h3>
             <form id="contactForm">
                 <input type="text" id="from_name" placeholder="Seu nome" required>
                 <input type="email" id="from_email" placeholder="Seu email" required>
@@ -241,7 +304,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Ana Elisa Fernandes Narcísio. Todos os direitos reservados.</p>
+            <p>&copy; 2026 Ana Elisa Fernandes Narcísio. Todos os direitos reservados.</p>
         </div>
     </footer>
 
