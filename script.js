@@ -158,3 +158,183 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+document.addEventListener("DOMContentLoaded", () => {
+    const reposContainer = document.getElementById("repos");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    if (reposContainer && prevBtn && nextBtn) {
+        // Obter o tamanho dinâmico do card + gap
+        const getScrollAmount = () => {
+            const card = reposContainer.querySelector(".project-card");
+            return card ? card.offsetWidth + 24 : 300;
+        };
+
+        const updateButtons = () => {
+            const scrollLeft = Math.round(reposContainer.scrollLeft);
+            const maxScrollLeft = Math.round(reposContainer.scrollWidth - reposContainer.clientWidth);
+
+            // Seta esquerda só aparece após o primeiro avanço
+            if (scrollLeft > 10) {
+                prevBtn.classList.add("is-visible");
+            } else {
+                prevBtn.classList.remove("is-visible");
+            }
+
+            // Seta direita esconde quando não há mais conteúdo para a direita
+            if (scrollLeft >= maxScrollLeft - 10) {
+                nextBtn.classList.add("is-hidden");
+            } else {
+                nextBtn.classList.remove("is-hidden");
+            }
+        };
+
+        nextBtn.addEventListener("click", () => {
+            reposContainer.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+        });
+
+        prevBtn.addEventListener("click", () => {
+            reposContainer.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+        });
+
+        reposContainer.addEventListener("scroll", updateButtons);
+        window.addEventListener("resize", updateButtons);
+
+        updateButtons();
+    }
+});
+
+// PROJETOS — busca dinâmica na API do GitHub
+const GH_USER = 'ananarcisio';
+
+const SELECTED_REPOS = ['Netflix---Java','HelpDesk-Core-API','Pura-Ess-ncia']; 
+
+const EXCLUDE = ['ananarcisio']; 
+
+const MAX_REPOS = 6; 
+
+const esc = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+async function fetchRepos() {
+    const key = 'repos:' + GH_USER;
+    try {
+        const hit = JSON.parse(sessionStorage.getItem(key) || 'null');
+        if (hit && Date.now() - hit.t < 600000) return hit.data;
+    } catch (e) { /* segue sem cache */ }
+
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 8000);
+    try {
+        const res = await fetch(`https://api.github.com/users/${GH_USER}/repos?per_page=100&sort=updated`, { signal: ctrl.signal });
+        if (!res.ok) throw new Error('GitHub API ' + res.status);
+        const data = await res.json();
+        try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), data })); } catch (e) {}
+        return data;
+    } finally { clearTimeout(timer); }
+}
+
+// Busca TODAS as linguagens utilizadas no repositório específico
+async function fetchRepoLanguages(languagesUrl) {
+    try {
+        const res = await fetch(languagesUrl);
+        if (!res.ok) return [];
+        const langsObj = await res.json();
+        // Retorna um array com os nomes das linguagens ex: ["JavaScript", "HTML", "CSS"]
+        return Object.keys(langsObj); 
+    } catch (e) {
+        return [];
+    }
+}
+
+function repoCard(r, allLanguages = []) {
+    const demo = r.homepage || (r.has_pages ? `https://${GH_USER}.github.io/${r.name}/` : '');
+    
+    // Junta as linguagens encontradas + os topics/tags do GitHub (sem duplicar)
+    const combinedTags = Array.from(new Set([...allLanguages, ...(r.topics || [])]));
+    
+    const tags = combinedTags
+        .map((t) => `<span class="skill-tag">${esc(t)}</span>`)
+        .join('');
+    
+    return `<div class="project-card is-visible">
+        <div class="project-card-icon"><i class="fas fa-code"></i></div>
+        <h3>${esc(r.name.replace(/[-_]/g, ' '))}</h3>
+        <p>${esc(r.description || 'Sem descrição no GitHub.')}</p>
+        <div class="project-tags">${tags || '<span class="skill-tag">Projeto</span>'}</div>
+        <p class="repo-stats">
+            <span><i class="far fa-star"></i> ${r.stargazers_count}</span>
+            <span><i class="fas fa-code-branch"></i> ${r.forks_count}</span>
+        </p>
+        <div class="project-links">
+            <a href="${esc(r.html_url)}" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> Código</a>
+            ${demo ? `<a href="${esc(demo)}" target="_blank" rel="noopener" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>` : ''}
+        </div>
+    </div>`;
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const grid = document.getElementById('repos');
+    const status = document.getElementById('repos-status');
+    const cta = grid ? grid.querySelector('.project-card--cta') : null;
+    
+    // Atualiza o botão "Ver Todos" para ir direto para os seus repositórios no GitHub
+    const seeAllBtn = document.querySelector('.project-card--cta a') || document.getElementById('see-all-repos');
+    if (seeAllBtn) {
+        seeAllBtn.href = `https://github.com/${GH_USER}?tab=repositories`;
+        seeAllBtn.target = '_blank';
+        seeAllBtn.rel = 'noopener';
+    }
+
+    if (!grid) return;
+    if (status) status.textContent = 'Carregando projetos selecionados...';
+
+    try {
+        const allRepos = await fetchRepos();
+
+        // Filtra os repositórios pela sua lista SELECTED_REPOS
+        let filtered = allRepos.filter((r) => {
+            const isNotForkOrArchived = !r.fork && !r.archived;
+            const isNotExcluded = !EXCLUDE.includes(r.name);
+            
+            if (SELECTED_REPOS.length > 0) {
+                return isNotForkOrArchived && isNotExcluded && SELECTED_REPOS.includes(r.name);
+            }
+            return isNotForkOrArchived && isNotExcluded;
+        });
+
+        if (SELECTED_REPOS.length > 0) {
+            filtered.sort((a, b) => SELECTED_REPOS.indexOf(a.name) - SELECTED_REPOS.indexOf(b.name));
+        } else {
+            filtered.sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
+        }
+
+        const reposToShow = filtered.slice(0, MAX_REPOS);
+
+        if (!reposToShow.length) throw new Error('Nenhum repositório selecionado foi encontrado.');
+
+        // Busca as linguagens de todos os projetos selecionados em paralelo
+        const reposWithLangs = await Promise.all(
+            reposToShow.map(async (repo) => {
+                const languages = await fetchRepoLanguages(repo.languages_url);
+                return repoCard(repo, languages);
+            })
+        );
+
+        // Remove os cards estáticos antigos
+        grid.querySelectorAll('.project-card--fill').forEach((el) => el.remove());
+
+        // Insere os novos cards atualizados com todas as linguagens
+        if (cta) {
+            cta.insertAdjacentHTML('beforebegin', reposWithLangs.join(''));
+        } else {
+            grid.innerHTML = reposWithLangs.join('');
+        }
+
+        if (status) status.textContent = '';
+    } catch (err) {
+        if (status) {
+            status.textContent = 'Exibindo destaques. Clique abaixo para conferir todos no GitHub.';
+        }
+    }
+});

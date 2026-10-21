@@ -4,12 +4,6 @@
     box-sizing: border-box;
 }
 
-/* ===================================================
-   DESIGN TOKENS
-   Conceito: "trajetória de voo" — o azul de céu do hero
-   original vira ponto de partida de uma paleta vibrante,
-   e a linha do tempo se torna uma rota de voo pontilhada.
-   =================================================== */
 :root {
     --sky: #2E9BF0;
     --sky-deep: #1668C4;
@@ -866,7 +860,101 @@ h1, h2, h3, .nav-logo {
     background: #ff5540;
 }
 
-/* ===================== Footer ===================== */
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden; 
+    border-radius: 12px;
+}
+
+.projects-grid {
+    display: flex !important;
+    gap: 1.5rem !important; 
+    overflow-x: auto !important;
+    scroll-behavior: smooth !important;
+    padding: 1rem 0.25rem !important;
+    scrollbar-width: none !important; 
+}
+
+.projects-grid::-webkit-scrollbar {
+    display: none !important; 
+}
+
+.projects-grid .project-card {
+    flex: 0 0 calc((100% - 3rem) / 3) !important;
+    min-width: calc((100% - 3rem) / 3) !important;
+    max-width: calc((100% - 3rem) / 3) !important;
+    box-sizing: border-box !important;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #1e293b;
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: opacity 0.3s ease, transform 0.2s ease, visibility 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: #0f172a;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 10px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.prev-btn.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.next-btn {
+    right: 10px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.next-btn.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+@media (max-width: 992px) {
+    .projects-grid .project-card {
+        flex: 0 0 calc((100% - 1.5rem) / 2) !important;
+        min-width: calc((100% - 1.5rem) / 2) !important;
+        max-width: calc((100% - 1.5rem) / 2) !important;
+    }
+}
+
+@media (max-width: 640px) {
+    .projects-grid .project-card {
+        flex: 0 0 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+/*===================== Footer ===================== */
 .footer {
     background: var(--navy);
     color: rgba(255,255,255,0.6);

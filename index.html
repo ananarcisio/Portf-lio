@@ -152,40 +152,70 @@
         <div class="container">
             <span class="section-eyebrow">Projetos</span>
             <h2 class="section-title">O que venho construindo</h2>
-            <p class="section-lead">Em breve, alguns dos meus repositórios em destaque no <a href="https://github.com/ananarcisio" target="_blank" rel="noopener">GitHub</a> — por enquanto, aqui está o espaço reservado para eles.</p>
-            <div class="projects-grid">
-                <div class="project-card project-card--fill">
-                    <div class="project-card-icon"><i class="fas fa-code"></i></div>
-                    <h3>Nome do projeto</h3>
-                    <p>Uma frase curta e direta sobre o problema que o projeto resolve.</p>
-                    <div class="project-tags">
-                        <span class="skill-tag">Tecnologia</span>
-                        <span class="skill-tag">Tecnologia</span>
+            <p class="section-lead">Meus repositórios públicos mais recentes, carregados direto do <a href="https://github.com/ananarcisio" target="_blank" rel="noopener">GitHub</a>.</p>
+            <p id="repos-status" class="repos-status" role="status"></p>
+            
+            <!-- Wrapper do Carrossel com Botões -->
+            <div class="carousel-container">
+                <!-- Seta Esquerda -->
+                <button class="carousel-btn prev-btn" id="prevBtn" type="button" aria-label="Anterior">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+    
+                <div class="projects-grid" id="repos" aria-live="polite">
+                    <div class="project-card project-card--fill">
+                        <div class="project-card-icon"><i class="fas fa-headset"></i></div>
+                        <h3>HelpDesk Core API</h3>
+                        <p>Sistema Full-Stack em .NET 8 com cálculo de SLA e interface Glassmorphism.</p>
+                        <div class="project-tags">
+                            <span class="skill-tag">.NET 8</span>
+                            <span class="skill-tag">SQLite</span>
+                            <span class="skill-tag">Docker</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ananarcisio/HelpDesk-Core-API" target="_blank" class="project-link"><i class="fab fa-github"></i> Código</a>
+                            <a href="https://helpdesk-core-api.onrender.com" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
+    
+                    <div class="project-card project-card--fill">
+                        <div class="project-card-icon"><i class="fab fa-java"></i></div>
+                        <h3>Netflix Java</h3>
+                        <p>Clone/Simulador da Netflix aplicando POO, herança e gestão de catálogo.</p>
+                        <div class="project-tags">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">POO</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ananarcisio/Netflix---Java" target="_blank" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card project-card--fill">
+                        <div class="project-card-icon"><i class="fas fa-pump-soap"></i></div>
+                        <h3>Pura Essência</h3>
+                        <p>Aplicação e-commerce responsiva para linha de cosméticos e perfumaria.</p>
+                        <div class="project-tags">
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">CSS3</span>
+                            <span class="skill-tag">JS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/ananarcisio/Pura-Ess-ncia" target="_blank" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+    
+                    <div class="project-card project-card--cta">
+                        <div class="project-card-icon"><i class="fab fa-github"></i></div>
+                        <h3>Ver todos os repositórios</h3>
+                        <p>Confira o restante do meu trabalho direto no GitHub.</p>
+                        <a href="https://github.com/ananarcisio" target="_blank" rel="noopener" class="btn-secondary btn-small">github.com/ananarcisio</a>
                     </div>
                 </div>
-                <div class="project-card project-card--fill">
-                    <div class="project-card-icon"><i class="fas fa-server"></i></div>
-                    <h3>Nome do projeto</h3>
-                    <p>Uma frase curta e direta sobre o problema que o projeto resolve.</p>
-                    <div class="project-tags">
-                        <span class="skill-tag">Tecnologia</span>
-                        <span class="skill-tag">Tecnologia</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
-                        <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i> Demo</a>
-                    </div>
-                </div>
-                <div class="project-card project-card--cta">
-                    <div class="project-card-icon"><i class="fab fa-github"></i></div>
-                    <h3>Ver todos os repositórios</h3>
-                    <p>Confira o restante do meu trabalho direto no GitHub.</p>
-                    <a href="https://github.com/ananarcisio" target="_blank" rel="noopener" class="btn-secondary btn-small">github.com/ananarcisio</a>
-                </div>
+    
+                <button class="carousel-btn next-btn" id="nextBtn" type="button" aria-label="Próximo">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -204,6 +234,7 @@
                         <span class="skill-tag">C#</span>
                         <span class="skill-tag">Bootstrap</span>
                         <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Java</span>
                     </div>
                 </div>
                 <div class="skill-category">
