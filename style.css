@@ -502,6 +502,22 @@
   .\[--cell-size\:2rem\] { --cell-size: 2rem; }
   .running { animation-play-state: running; }
   .group-focus-within\/menu-item\:opacity-100:is(:where(.group\/menu-item):focus-within *) { opacity: 1; }
+  /* No mobile: imagem sempre colorida e sem efeito de zoom */
+.foto-perfil {
+  filter: grayscale(0%);
+}
+
+/* Apenas no Desktop (ecrãs a partir de 768px): aplica o preto e branco e o hover */
+@media (min-width: 768px) {
+  .foto-perfil {
+    filter: grayscale(100%);
+  }
+
+  .foto-perfil:hover {
+    filter: grayscale(0%);
+    transform:  scale(1.05);
+  }
+}
   @media (hover: hover) {
   .group-hover\:scale-105:is(:where(.group):hover *) { --tw-scale-x: 105%; --tw-scale-y: 105%; --tw-scale-z: 105%; scale: var(--tw-scale-x) var(--tw-scale-y); }
   .group-hover\:rotate-12:is(:where(.group):hover *) { rotate: 12deg; }
